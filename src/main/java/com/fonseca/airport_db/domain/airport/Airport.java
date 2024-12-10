@@ -1,12 +1,12 @@
-package com.fonseca.airport_db.entity;
+package com.fonseca.airport_db.domain.airport;
 
-import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Entity
+@AllArgsConstructor
 public class Airport
 {
 
