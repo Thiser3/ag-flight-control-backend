@@ -14,7 +14,7 @@ public class EnterpriseDAO {
 
         try {
             ps = Conexao.getConnection().prepareStatement(sql);
-            ps.setString(1,"tony");
+            ps.setString(1, enterprise.getName());
             System.out.println(enterprise.getName());
             ps.execute();
             ps.close();
