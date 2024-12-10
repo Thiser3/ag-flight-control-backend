@@ -23,8 +23,11 @@ public class AirportDAO {
 
             ps.execute();
             ps.close();
+
         }catch(SQLException e){
+
             e.printStackTrace();
+
         }
     }
 
@@ -53,6 +56,7 @@ public class AirportDAO {
             ps.close();
 
         } catch (SQLException e) {
+
             e.printStackTrace();
 
         }

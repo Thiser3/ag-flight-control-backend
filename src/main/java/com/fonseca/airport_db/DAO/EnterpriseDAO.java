@@ -14,13 +14,16 @@ public class EnterpriseDAO {
 
         try {
             ps = Conexao.getConnection().prepareStatement(sql);
+
             ps.setString(1, enterprise.getName());
-            System.out.println(enterprise.getName());
+
             ps.execute();
             ps.close();
 
-        } catch (SQLException e) {
+        }catch (SQLException e){
+
             e.printStackTrace();
+
         }
     }
 
@@ -39,6 +42,7 @@ public class EnterpriseDAO {
             ps.close();
 
         } catch (SQLException e) {
+
             e.printStackTrace();
 
         }

@@ -9,6 +9,8 @@ import lombok.Setter;
 @Entity
 public class Enterprise
 {
+
     private int enterpriseID;
     private String name;
+
 }
