@@ -23,4 +23,24 @@ public class EnterpriseDAO {
             e.printStackTrace();
         }
     }
+
+    public void updateEnterprise(Enterprise enterprise) {
+        String sql = "UPDATE enterprises SET "
+                + "name = ? WHERE enterpriseID = ? ";
+
+        PreparedStatement ps = null;
+
+        try {
+            ps = Conexao.getConnection().prepareStatement(sql);
+
+            ps.setString(1, enterprise.getName());
+
+            ps.execute();
+            ps.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+    }
 }
