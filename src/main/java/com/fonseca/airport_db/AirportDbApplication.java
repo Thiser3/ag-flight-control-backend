@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories(basePackages ="com.fonseca.airport_db.domain.Enterprise")
 public class AirportDbApplication {
 
 	public static void main(String[] args) {

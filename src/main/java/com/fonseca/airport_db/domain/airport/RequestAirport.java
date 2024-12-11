@@ -6,5 +6,6 @@ public record RequestAirport(int airportID,
                              int gateways,
                              String country,
                              String region,
-                             String city){
+                             String city,
+                             String type){
 }
