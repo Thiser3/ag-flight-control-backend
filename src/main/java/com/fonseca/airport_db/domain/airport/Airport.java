@@ -10,11 +10,11 @@ import lombok.Setter;
 public class Airport
 {
 
-    private String ICAO_Code;
+    private String icao_code;
     private String name;
     private int gateways;
-    private String Country;
-    private String Region;
-    private String City;
+    private String country;
+    private String region;
+    private String city;
 
 }

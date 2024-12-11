@@ -1,10 +1,10 @@
-package com.fonseca.airport_db.domain.Enterprise;
+package com.fonseca.airport_db.domain.enterprise;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 @Table(name="enterprises")
-@Entity(name= "enterprise")
+@Entity(name="enterprise")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -12,7 +12,7 @@ import lombok.*;
 @EqualsAndHashCode(of = "enterpriseID")
 public class Enterprise
 {
-    @Id @GeneratedValue(strategy = GenerationType.UUID)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int enterpriseID;
     private String name;
 }
