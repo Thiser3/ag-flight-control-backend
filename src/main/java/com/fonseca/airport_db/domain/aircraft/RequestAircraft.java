@@ -1,6 +1,15 @@
 package com.fonseca.airport_db.domain.aircraft;
 
-public record RequestAircraft(int aircraftID,
-                              int modelID,
-                              int flightID){
+import org.jetbrains.annotations.NotNull;
+
+public record RequestAircraft(@NotNull
+                              Integer aircraftID,
+
+                              @NotNull
+                              Integer modelID,
+
+                              @NotNull
+                              Integer enterpriseID,
+
+                              Integer flightID){
 }

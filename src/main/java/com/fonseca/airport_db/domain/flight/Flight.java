@@ -14,9 +14,9 @@ public class Flight
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int flightID;
-    private int startingAirportID;
-    private int destinyAirportID;
-    private int aircraftID;
+    private Integer flightID;
+    private Integer startingAirportID;
+    private Integer destinyAirportID;
+    private Integer aircraftID;
 
 }

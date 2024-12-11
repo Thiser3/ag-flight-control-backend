@@ -14,10 +14,10 @@ public class Airport
 {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int airportID;
+    private Integer airportID;
     private String icao_code;
     private String name;
-    private int gateways;
+    private Integer gateways;
     private String country;
     private String region;
     private String city;

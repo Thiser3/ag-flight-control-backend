@@ -13,9 +13,9 @@ import lombok.Setter;
 public class Aircraft
 {
         @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int aircraftID;
-        private int modelID;
-        private int enterpriseID;
-        private int flightID;
+        private Integer aircraftID;
+        private Integer modelID;
+        private Integer enterpriseID;
+        private Integer flightID;
 
 }
