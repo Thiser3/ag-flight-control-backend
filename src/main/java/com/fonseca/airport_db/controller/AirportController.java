@@ -1,6 +1,6 @@
 package com.fonseca.airport_db.controller;
 
-import com.fonseca.airport_db.domain.aircraft.AircraftRepository;
+import com.fonseca.airport_db.domain.airport.AirportRepository;
 import com.fonseca.airport_db.domain.airport.RequestAirport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 public class AirportController {
 
     @Autowired
-    public AircraftRepository repository;
+    public AirportRepository repository;
 
     @GetMapping
     public ResponseEntity getAllAirport() {
