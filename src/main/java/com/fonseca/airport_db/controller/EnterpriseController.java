@@ -1,11 +1,11 @@
 package com.fonseca.airport_db.controller;
 
 import com.fonseca.airport_db.domain.enterprise.EnterpriseRepository;
+import com.fonseca.airport_db.domain.enterprise.RequestEnterprise;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/enterprises")
@@ -19,4 +19,11 @@ public class EnterpriseController {
         var allEnterprises = repository.findAll();
         return ResponseEntity.ok(allEnterprises);
     }
+
+    @PostMapping
+    public ResponseEntity registerEnterprise(@RequestBody @Validated RequestEnterprise data) {
+        System.out.println(data);
+        return ResponseEntity.ok().build();
+    }
+
 }
