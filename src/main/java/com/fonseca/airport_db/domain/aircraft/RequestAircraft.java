@@ -11,5 +11,7 @@ public record RequestAircraft(@NotNull
                               @NotNull
                               Integer enterpriseID,
 
-                              Integer flightID){
+                              Integer flightID,
+
+                              Integer liveAirportID){
 }

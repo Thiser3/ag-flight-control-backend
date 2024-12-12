@@ -1,0 +1,11 @@
+CREATE TABLE aircraft (
+  AircraftID INTEGER NOT NULL AUTO_INCREMENT,
+  ModelID INTEGER NOT NULL,
+  enterpriseID INTEGER NOT NULL,
+  FlightID INTEGER,
+  LiveAirportID INTEGER,
+  PRIMARY KEY (AircraftID),
+  CONSTRAINT FK_AircraftFlight FOREIGN KEY (FlightID) REFERENCES flights(FlightID),
+  CONSTRAINT FK_LiveAirportID FOREIGN KEY (LiveAirportID) REFERENCES airports(AirportID),
+  CONSTRAINT FK_ModelID FOREIGN KEY (ModelID) REFERENCES models(ModelID)
+  );

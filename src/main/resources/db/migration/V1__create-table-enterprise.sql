@@ -1,5 +1,5 @@
-CREATE TABLE "enterprises" (
-    "enterpriseID" INTEGER NOT NULL AUTO_INCREMENT,
-    "name" VARCHAR(45) NOT NULL,
-    PRIMARY KEY ("enterpriseID")
+CREATE TABLE enterprises (
+    EnterpriseID INTEGER NOT NULL AUTO_INCREMENT,
+    Name VARCHAR(45) NOT NULL,
+    PRIMARY KEY (enterpriseID)
 );

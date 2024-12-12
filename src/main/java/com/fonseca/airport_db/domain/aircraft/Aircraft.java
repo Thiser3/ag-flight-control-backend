@@ -6,6 +6,7 @@ import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.lang.Contract;
 
 @Getter
 @Setter
@@ -17,5 +18,6 @@ public class Aircraft
         private Integer modelID;
         private Integer enterpriseID;
         private Integer flightID;
+        private Integer liveAirportID;
 
 }
