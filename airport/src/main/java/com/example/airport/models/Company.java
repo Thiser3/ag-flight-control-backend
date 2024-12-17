@@ -3,6 +3,7 @@ package com.example.airport.models;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "companies")
 public class Company {
 
     @Id
@@ -12,7 +13,6 @@ public class Company {
     @Column(nullable = false, unique = true)
     private String name;
 
-    // Getter e Setter para 'id'
     public Long getId() {
         return id;
     }
@@ -21,7 +21,6 @@ public class Company {
         this.id = id;
     }
 
-    // Getter e Setter para 'name'
     public String getName() {
         return name;
     }

@@ -11,17 +11,17 @@ CREATE TABLE airports (
                           Type VARCHAR(6) NOT NULL
 );
 
--- Criando a tabela `enterprises`
-DROP TABLE IF EXISTS enterprises;
+-- Criando a tabela `companies`
+DROP TABLE IF EXISTS companies;
 
-CREATE TABLE enterprises (
-                             enterpriseID SERIAL PRIMARY KEY,
-                             name VARCHAR(45) NOT NULL
+CREATE TABLE companies (
+                           companyID SERIAL PRIMARY KEY,
+                           name VARCHAR(45) NOT NULL
 );
 
--- Inserindo dados na tabela `enterprises`
+-- Inserindo dados na tabela `companies`
 INSERT INTO
-    enterprises (enterpriseID, name)
+    companies (companyID, name)
 VALUES (1, 'teste'),
        (2, 'teste2'),
        (3, 'name');
@@ -48,7 +48,9 @@ CREATE TABLE flights (
 -- Criando a tabela `aircrafts` (sem a restrição de chave estrangeira por enquanto)
 DROP TABLE IF EXISTS aircrafts;
 
-CREATE TABLE aircrafts (aircraftID INT PRIMARY KEY);
+CREATE TABLE aircrafts (
+                           aircraftID INT PRIMARY KEY
+);
 
 -- Adicionando restrições de chave estrangeira (após as tabelas e dados serem criados)
 ALTER TABLE aircrafts
