@@ -49,6 +49,7 @@ public class AirportController {
                                              @RequestParam Integer itensPerPage,
                                              @RequestParam String ordenation,
                                              @RequestParam String ordenationType){
+
         PageRequest pageReq = PageRequest.of(page, itensPerPage, (ordenationType.equals("ASC") ?
                 Sort.by(ordenation).ascending() : Sort.by(ordenation).descending()));
 
