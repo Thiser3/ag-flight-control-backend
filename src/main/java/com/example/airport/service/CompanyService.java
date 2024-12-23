@@ -30,16 +30,19 @@ public class CompanyService {
     public Company searchCompanyByID(Long id) {
 
         Optional<Company> company = companyRepository.findById(id);
+
         return company.orElseThrow(() -> new
                 ObjectNotFoundException("Company not found"));
 
     }
 
     public Page<Company> searchCompanyByPage(PageRequest page){
+
         Optional<Page<Company>> companiesAtPage = Optional.of(companyRepository.findAll(page));
 
         return companiesAtPage.orElseThrow(() -> new
                 ObjectNotFoundException("Page not found."));
+
     }
 
     public Company saveCompany(Company company){
@@ -54,9 +57,13 @@ public class CompanyService {
 
         if (companyDB != null) {
             companyDB.setName(companyDB.getName());
+
             return companyRepository.save(companyDB);
+
         } else {
+
             return null;
+
         }
 
     }
@@ -69,6 +76,7 @@ public class CompanyService {
             companyRepository.deleteById(id);
             return "Company deleted!";
         }
+
         return "Company not found.";
 
     }

@@ -28,8 +28,9 @@ public class CompanyController {
     @GetMapping("/")
     public ResponseEntity<List<Company>> searchAllCompanies(){
 
-        List<Company> companyList = companyService.searchAllCompanies();
-        return ResponseEntity.ok().body(companyList);
+        List<Company> allCompanies = companyService.searchAllCompanies();
+
+        return ResponseEntity.ok().body(allCompanies);
 
     }
 
@@ -41,7 +42,7 @@ public class CompanyController {
 
     }
 
-    @GetMapping("page")
+    @GetMapping("/{page}")
     public Page<Company> searchCompanyByPage(@RequestParam Integer page,
                                              @RequestParam Integer itensPerPage,
                                              @RequestParam String ordenation,
@@ -59,14 +60,18 @@ public class CompanyController {
 
         Company newCompany = new Company(data);
         companyService.saveCompany(newCompany);
+
         return new ResponseEntity<>(newCompany, HttpStatus.CREATED);
 
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Company> updateCompany(@PathVariable("id") Long id, @RequestBody @Valid RequestCompany data, Company company){
+    public ResponseEntity<Company> updateCompany(@PathVariable("id") Long id,
+                                                 @RequestBody @Valid RequestCompany data,
+                                                 Company company){
 
         company = companyService.updateCompany(id, company);
+
         return ResponseEntity.ok().body(company);
 
     }

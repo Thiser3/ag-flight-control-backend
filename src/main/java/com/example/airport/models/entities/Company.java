@@ -27,8 +27,8 @@ public class Company {
     public Company(RequestCompany requestCompany){
         this.name = requestCompany.name();
     }
-    public Company() {
 
+    public Company() {
     }
 
     public Long getId() {
