@@ -8,6 +8,8 @@ import com.example.airport.repositories.CompanyRepository;
 //External Imports
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 
 //Java Imports
 import java.util.List;
@@ -33,6 +35,10 @@ public class CompanyService {
 
     }
 
+    public Page<Company> searchCompanyByPage(PageRequest page){
+        return companyRepository.findAll(page);
+    }
+
     public Company saveCompany(Company company){
 
         return companyRepository.save(company);
@@ -44,7 +50,6 @@ public class CompanyService {
         Company companyDB = companyRepository.findById(id).orElse(null);
 
         if (companyDB != null) {
-            companyDB.setId(companyDB.getId());
             companyDB.setName(companyDB.getName());
             return companyRepository.save(companyDB);
         } else {

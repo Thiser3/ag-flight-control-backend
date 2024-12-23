@@ -1,8 +1,10 @@
 package com.example.airport.models.entities;
 
+//External Imports
 import com.example.airport.models.records.RequestCompany;
 import jakarta.persistence.*;
 
+//Java Imports
 import java.util.Objects;
 
 @Entity
@@ -13,14 +15,14 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @Column(nullable = false, unique = true)
+    private String name;
+
     public Company(Long id, String name) {
         this.id = id;
         this.name = name;
     }
-
-
-    @Column(nullable = false, unique = true)
-    private String name;
 
     public Company(RequestCompany requestCompany){
         this.name = requestCompany.name();

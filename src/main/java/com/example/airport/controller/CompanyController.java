@@ -7,7 +7,11 @@ import com.example.airport.service.CompanyService;
 
 //External Imports
 import jakarta.validation.Valid;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -38,6 +42,19 @@ public class CompanyController {
 
     }
 
+    @GetMapping("page")
+    public Page<Company> searchCompanyByPage(@RequestParam Integer page,
+                                             @RequestParam Integer itensPerPage,
+                                             @RequestParam String ordenation,
+                                             @RequestParam String ordenationType){
+
+        PageRequest pageReq = PageRequest.of(page, itensPerPage, (ordenationType.equals("ASC") ?
+                              Sort.by(ordenation).ascending() : Sort.by(ordenation).descending()));
+
+        return companyService.searchCompanyByPage(pageReq);
+
+    }
+
     @PostMapping("/")
     public ResponseEntity<Company> createCompany(@RequestBody @Valid RequestCompany data) {
 
@@ -48,7 +65,7 @@ public class CompanyController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Company> updateCompany(@PathVariable("id") Long id, Company company){
+    public ResponseEntity<Company> updateCompany(@PathVariable("id") Long id, @RequestBody @Valid RequestCompany data, Company company){
 
         company = companyService.updateCompany(id, company);
         return ResponseEntity.ok().body(company);
