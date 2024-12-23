@@ -36,7 +36,10 @@ public class CompanyService {
     }
 
     public Page<Company> searchCompanyByPage(PageRequest page){
-        return companyRepository.findAll(page);
+        Optional<Page<Company>> companiesAtPage = Optional.of(companyRepository.findAll(page));
+
+        return companiesAtPage.orElseThrow(() -> new
+                ObjectNotFoundException("Page not found."));
     }
 
     public Company saveCompany(Company company){
