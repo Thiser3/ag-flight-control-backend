@@ -25,6 +25,9 @@ public class Airport {
     @Column(nullable = false)
     private Boolean available;
 
+    @Column(nullable = false)
+    private Boolean isActive;
+
     public Airport(Long id, String name, Integer gateways, Boolean available){
         this.id = id;
         this.name = name;
@@ -36,6 +39,7 @@ public class Airport {
         this.name = requestAirport.name();
         this.gateways = requestAirport.gateways();
         this.available = requestAirport.available();
+        this.isActive = requestAirport.isActive();
 
     }
 
@@ -63,7 +67,7 @@ public class Airport {
         this.gateways = gateways;
     }
 
-    public Boolean isAvailable() {
+    public Boolean getAvailable() {
         return available;
     }
 
@@ -71,15 +75,28 @@ public class Airport {
         this.available = available;
     }
 
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         Airport airport = (Airport) o;
-        return gateways == airport.gateways && available == airport.available && Objects.equals(id, airport.id) && Objects.equals(name, airport.name);
+        return Objects.equals(id, airport.id) &&
+                Objects.equals(name, airport.name) &&
+                Objects.equals(gateways, airport.gateways) &&
+                Objects.equals(available, airport.available) &&
+                Objects.equals(isActive, airport.isActive);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, gateways, available);
+        return Objects.hash(id, name, gateways, available, isActive);
     }
+
 }

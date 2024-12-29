@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
+
 @RestController
 @RequestMapping("/api/airports")
 public class AirportController {
@@ -72,9 +73,9 @@ public class AirportController {
                                                  @RequestBody @Valid RequestAirport data,
                                                  Airport airport){
 
-        airport = airportService.updateAirport(id, airport);
+        Airport newAirport = airportService.updateAirport(id, airport);
 
-        return ResponseEntity.ok().body(airport);
+        return ResponseEntity.ok().body(newAirport);
 
     }
 

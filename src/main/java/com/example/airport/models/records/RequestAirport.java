@@ -11,5 +11,8 @@ public record RequestAirport(@NotBlank
                              Boolean available,
 
                              @NotNull
+                             Boolean isActive,
+
+                             @NotNull
                              Integer gateways) {
 }

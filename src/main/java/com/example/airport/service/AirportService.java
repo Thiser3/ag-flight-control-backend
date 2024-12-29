@@ -3,7 +3,6 @@ package com.example.airport.service;
 //Internal Imports
 import com.example.airport.exception.ObjectNotFoundException;
 import com.example.airport.models.entities.Airport;
-import com.example.airport.models.entities.Company;
 import com.example.airport.repositories.AirportRepository;
 
 //External Imports
@@ -59,8 +58,9 @@ public class AirportService {
         if(airportDB != null){
 
             airportDB.setName(airport.getName());
-            airportDB.setAvailable(airport.isAvailable());
+            airportDB.setAvailable(airport.getAvailable());
             airportDB.setGateways(airport.getGateways());
+            airportDB.setActive(airport.getActive());
 
             return airportRepository.save(airportDB);
 
